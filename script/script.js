@@ -9,26 +9,31 @@ let output = document.getElementById('output');
 
 function Calculator() {
   this.read = function () {
-    a = +prompt('введіть перше число:', 0);
-    b = +prompt('введіть друге число:', 0);
-    return a, b;
+    this.a = +prompt('введіть перше число:', 0);
+    this.b = +prompt('введіть друге число:', 0);
   };
   this.sum = function () {
-    return a + b;
+    return this.a + this.b;
   };
   this.mul = function () {
-    return a * b;
+    return this.a * this.b;
   };
 }
 const calc = new Calculator();
 calc.read();
 
-const p0 = document.createElement('p');
-const p1 = document.createElement('p');
-const p2 = document.createElement('p');
-p0.textContent = 'Перше та друге число: ' + a + ' та ' + b;
-output.appendChild(p0);
-p1.textContent = 'Сума: ' + calc.sum();
-output.appendChild(p1);
-p2.textContent = 'Добуток: ' + calc.mul();
-output.appendChild(p2);
+// const p0 = document.createElement('p');
+// const p1 = document.createElement('p');
+// const p2 = document.createElement('p');
+
+// p0.textContent = 'Перше та друге число: ' + calc.a + ' та ' + calc.b;
+// output.appendChild(p0);
+// p1.textContent = 'Сума: ' + calc.sum();
+// output.appendChild(p1);
+// p2.textContent = 'Добуток: ' + calc.mul();
+// output.appendChild(p2);
+['Перше та друге число: ' + calc.a + ' та ' + calc.b, 'Сума: ' + calc.sum(), 'Добуток: ' + calc.mul()].forEach(text => {
+  const p = document.createElement('p');
+  p.textContent = text;
+  output.appendChild(p);
+});
